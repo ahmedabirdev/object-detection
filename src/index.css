@@ -1,0 +1,107 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App layout */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: #0b0b0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+}
+
+/* Header wrapper */
+.app_header {
+  width: 100%;
+  max-width: 1400px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Camera container */
+.camera_container {
+  position: relative;
+  width: 90%;
+  aspect-ratio: 16 / 9;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #000;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Webcam video */
+.camera_video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Detection canvas */
+.camera_canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* UI overlay */
+.ui_overlay {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.ui_overlay h1 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.ui_overlay p {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-top: 0.25rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .camera_container {
+    aspect-ratio: 3 / 4;
+    border-radius: 1rem;
+  }
+
+  .ui_overlay {
+    left: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ui_overlay h1 {
+    font-size: 0.9rem;
+  }
+
+  .ui_overlay p {
+    font-size: 0.65rem;
+  }
+}
